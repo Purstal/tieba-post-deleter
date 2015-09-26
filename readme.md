@@ -1,5 +1,5 @@
 百度贴吧删贴机, 
-由 iamunknown 原为minecraft吧所写
+由 [iamunknown](http://tieba.baidu.com/home/main?un=iamunknown)(即本人) 原为minecraft吧所写
 
 * 2014年10月 完成第一版
 * 2015年2月 完全推倒重写, 框架基本固定
