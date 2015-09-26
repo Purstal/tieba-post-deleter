@@ -1,0 +1,9 @@
+{
+	"BDUSS":"",
+	"ForumName":"minecraft",
+	"贴子内容正则文件":"Keywords-Content",
+	"用户名正则文件":"Keywords-UserName",
+	"tid白名单文件":"Whitelist-Tid",
+	"用户名白名单文件":"Whitelist-UserName",
+	"吧务列表文件":"BawuList"
+}

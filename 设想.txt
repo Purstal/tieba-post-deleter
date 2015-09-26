@@ -1,0 +1,17 @@
+1.
+meet any:
+	meet all: #可省略为 all:
+		text ~ 十五字
+		text-len == 15
+	text ~ (十五字.*?){2,} #可扩写成 meet text ...
+	meet all:
+		text ~ 传奇
+		level <= 3
+	text ~ any:
+		你每到一个帖子就粘贴这句话
+		复制下面这段话
+do:
+	delete
+	finish
+
+2. lua
