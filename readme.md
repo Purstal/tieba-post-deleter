@@ -23,3 +23,7 @@
 * CPU占用平均0.20%. 当年在我最低配的阿里云主机上, 也只有1~2%而已.
 * 内存大约16MB. 曾连续稳定运行几百小时, 未出现内存泄露.
 测试过程中除因没有吧务权限无法删贴, 未有任何异常.
+
+相关模块:
+https://github.com/Purstal/go-tieba-modules/tree/master/forum-page-monitor
+https://github.com/Purstal/go-tieba-modules/tree/master/post-finder
