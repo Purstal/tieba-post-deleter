@@ -8,7 +8,7 @@ import (
 
 	postfinder "github.com/purstal/go-tieba-modules/post-finder"
 
-	"github.com/purstal/go-tieba-tools/simple-post-deleter/post-deleter/keyword-manager"
+	"github.com/purstal/tieba-post-deleter/post-deleter/keyword-manager"
 )
 
 func MakePrefix(serverTime *time.Time, tid, pid, spid, uid uint64) string {

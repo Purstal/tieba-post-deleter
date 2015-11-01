@@ -1,9 +1,9 @@
 百度贴吧删贴机, 
-由 [iamunknown](http://tieba.baidu.com/home/main?un=iamunknown)(即本人) 原为minecraft吧所写
+由 [iamunknown](http://tieba.baidu.com/home/main?un=iamunknown)(即本人) 原来为minecraft吧所写
 
 * 2014年10月 完成第一版
 * 2015年2月 完全推倒重写, 框架基本固定
-* 2015年6月 暂时停止维护 (到目前(2015年9月26日)为止,依旧能正常使用)
+* 2015年6月 暂时停止维护 (到目前(2015年<del>9月26日</del>11月1日)为止,依旧能正常使用)
 
 本打算加入lua支持(甚至作为主要框架),但迫于没有时间就搁置了.
 

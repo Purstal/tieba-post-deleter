@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/purstal/go-tieba-base/logs"
-	"github.com/purstal/go-tieba-tools/operation-analyser/csv"
+	"github.com/purstal/go-tieba-modules/utils/csv"
 )
 
 type OperationLogger struct {

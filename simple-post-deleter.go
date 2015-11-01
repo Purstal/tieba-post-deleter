@@ -16,8 +16,8 @@ import (
 	"github.com/purstal/go-tieba-base/tieba"
 	"github.com/purstal/go-tieba-base/tieba/apis"
 
-	//"github.com/purstal/go-tieba-tools/simple-post-deleter/mruby-support"
-	postdeleter "github.com/purstal/go-tieba-tools/simple-post-deleter/post-deleter"
+	//"github.com/purstal/tieba-post-deleter/mruby-support"
+	postdeleter "github.com/purstal/tieba-post-deleter/post-deleter"
 )
 
 var accWin8 *postbar.Account
