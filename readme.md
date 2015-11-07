@@ -24,7 +24,7 @@
 4. 百度的高级搜索在特定的时间段, 贴子的更新会产生较长的延后, 所以若高级搜索未找到, 会加入延时查找;
 5. 如果延时查找达到超过一定的次数(每次查找间隔的时间会越来越大)却依旧没找到, 才将会放弃.
 
-#效果
+#资源占用/删贴效果
 ##2015年9月26日 自家电脑
 测试了一下, minecraft吧的关注有90万,
 在CPU是`AMD Phenom(羿龙) II X4 965 四核`, 系统是`Windows 10 64位`的电脑下,
@@ -38,7 +38,11 @@ minecreat吧,97万关注:
 ![阿里云的监控数据](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/server%20detail.png)
 ![单日监控数据](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/24h.png)
 ![TOP](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/top.png)
-(CPU占用大概在0.3%~1.7%浮动,大多数时间在1%左右)
+<br/>(CPU占用大概在0.3%~1.7%浮动,大多数时间在1%左右)
+
+###删贴效果
+![操作记录](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/logs.png)
+
 
 #相关模块
 https://github.com/Purstal/go-tieba-modules/tree/master/forum-page-monitor
