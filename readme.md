@@ -41,7 +41,7 @@ minecreat吧,97万关注:
 <br/>(CPU占用大概在0.3%~1.7%浮动,大多数时间在1%左右)
 
 ###删贴效果
-![操作记录](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/logs.png)
+![操作记录](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/delete%20logs.png)
 
 
 #相关模块
