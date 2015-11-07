@@ -5,6 +5,8 @@
 * 2015年2月 完全推倒重写, 框架基本固定
 * 2015年6月 暂时停止维护 (到目前(2015年<del>9月26日</del>11月1日)为止,依旧能正常使用)
 
+![随便截的一张删贴机截图](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/post%20deleter.png)
+
 本打算加入lua支持(甚至作为主要框架),但迫于没有时间就搁置了.
 
 默认每秒扫描主页,据此找到新贴子.
@@ -23,6 +25,10 @@
 * CPU占用平均0.20%. 当年在我最低配的阿里云主机上, 也只有1~2%而已.
 * 内存大约16MB. 曾连续稳定运行几百小时, 未出现内存泄露.
 测试过程中除因没有吧务权限无法删贴, 未有任何异常.
+
+2015年11月1日至7日的试跑,依旧是minecreat吧,97万关注:
+![](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/server%20detail.png)
+![](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/top.png)
 
 相关模块:
 https://github.com/Purstal/go-tieba-modules/tree/master/forum-page-monitor
