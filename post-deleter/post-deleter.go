@@ -43,8 +43,6 @@ type PostDeleterBuildingParameters struct {
 
 	ConfgiFileName ConfgiFileName
 
-	//Mrb *mruby.Mrb
-
 	Debugging bool
 	LogDir    string
 }
@@ -60,7 +58,9 @@ type ConfgiFileName struct {
 func NewPostDeleter(b PostDeleterBuildingParameters) (*PostDeleter, error) {
 	var deleter PostDeleter
 
-	if err := initLogger(&deleter, b.LogDir); err != nil {
+	var err error
+
+	if err = initLogger(&deleter, b.LogDir); err != nil {
 		return nil, err
 	}
 
@@ -70,19 +70,20 @@ func NewPostDeleter(b PostDeleterBuildingParameters) (*PostDeleter, error) {
 		deleter.OpLogger = opLogger
 	}
 
-	{
-		var err error
-		if deleter.Content_RxKw, err = newRxKwManager(b.ConfgiFileName.ContentRegexp, deleter.Logger); err != nil {
-			return nil, err
-		} else if deleter.UserName_RxKw, err = newRxKwManager(b.ConfgiFileName.UserNameRegexp, deleter.Logger); err != nil {
-			return nil, err
-		} else if deleter.Tid_Whitelist, err = newU64KwManager(b.ConfgiFileName.TidWhiteList, deleter.Logger); err != nil {
-			return nil, err
-		} else if deleter.UserName_Whitelist, err = newStrKwManager(b.ConfgiFileName.UserNameWhiteList, deleter.Logger); err != nil {
-			return nil, err
-		} else if deleter.BawuList, err = newStrKwManager(b.ConfgiFileName.BawuList, deleter.Logger); err != nil {
-			return nil, err
-		}
+	if err = func() (err error) {
+		defer func() {
+			if x := recover(); x != nil {
+				err = x.(error)
+			}
+		}()
+		deleter.Content_RxKw = newRxKwManager(b.ConfgiFileName.ContentRegexp, deleter.Logger)
+		deleter.UserName_RxKw = newRxKwManager(b.ConfgiFileName.UserNameRegexp, deleter.Logger)
+		deleter.Tid_Whitelist = newU64KwManager(b.ConfgiFileName.TidWhiteList, deleter.Logger)
+		deleter.UserName_Whitelist = newStrKwManager(b.ConfgiFileName.UserNameWhiteList, deleter.Logger)
+		deleter.BawuList = newStrKwManager(b.ConfgiFileName.BawuList, deleter.Logger)
+		return
+	}(); err != nil {
+		return nil, err
 	}
 
 	deleter.AccWin8, deleter.AccAndr = b.AccWin8, b.AccAndr
@@ -125,7 +126,7 @@ func initLogger(pd *PostDeleter, logDir string) error {
 	return nil
 }
 
-func newRxKwManager(fileName string, logger *logs.Logger) (*kw_manager.RegexpKeywordManager, error) {
+func newRxKwManager(fileName string, logger *logs.Logger) *kw_manager.RegexpKeywordManager {
 	var m *kw_manager.RegexpKeywordManager
 	var err error
 	if fileName != "" {
@@ -134,16 +135,16 @@ func newRxKwManager(fileName string, logger *logs.Logger) (*kw_manager.RegexpKey
 				fileName, time.Second, logger)
 		if err != nil {
 			logger.Error("无法创建正则关键词管理.", err)
-			return nil, err
+			panic(err)
 		}
-		return m, nil
+		return m
 	} else {
 		logger.Warn("未设置正则关键词文件")
-		return kw_manager.NewRegexpKeywordManager(logger), nil
+		return kw_manager.NewRegexpKeywordManager(logger)
 	}
 }
 
-func newU64KwManager(fileName string, logger *logs.Logger) (*kw_manager.Uint64KeywordManager, error) {
+func newU64KwManager(fileName string, logger *logs.Logger) *kw_manager.Uint64KeywordManager {
 	var m *kw_manager.Uint64KeywordManager
 	var err error
 	if fileName != "" {
@@ -152,16 +153,16 @@ func newU64KwManager(fileName string, logger *logs.Logger) (*kw_manager.Uint64Ke
 				fileName, time.Second, logger)
 		if err != nil {
 			logger.Error("无法创建uint64关键词管理.", err)
-			return nil, err
+			panic(err)
 		}
-		return m, nil
+		return m
 	} else {
 		logger.Warn("未设置uint64关键词文件")
-		return kw_manager.NewUint64KeywordManager(logger), nil
+		return kw_manager.NewUint64KeywordManager(logger)
 	}
 }
 
-func newStrKwManager(fileName string, logger *logs.Logger) (*kw_manager.StringKeywordManager, error) {
+func newStrKwManager(fileName string, logger *logs.Logger) *kw_manager.StringKeywordManager {
 	var m *kw_manager.StringKeywordManager
 	var err error
 	if fileName != "" {
@@ -170,11 +171,11 @@ func newStrKwManager(fileName string, logger *logs.Logger) (*kw_manager.StringKe
 				fileName, time.Second, logger)
 		if err != nil {
 			logger.Error("无法创建string关键词管理.", err)
-			return nil, err
+			panic(err)
 		}
-		return m, nil
+		return m
 	} else {
 		logger.Warn("未设置string关键词文件")
-		return kw_manager.NewStringKeywordManager(logger), nil
+		return kw_manager.NewStringKeywordManager(logger)
 	}
 }

@@ -100,8 +100,6 @@ func main() {
 				BawuList:          settings.BawuListFilePath,
 			},
 
-			//Mrb: mrb,
-
 			Debugging: settings.DebugPort != 0,
 			LogDir:    logDir,
 		}); err != nil {

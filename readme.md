@@ -10,6 +10,8 @@
 
 本打算加入lua支持(甚至作为主要框架),但迫于没有时间就搁置了.
 
+曾想过写个网页版后台,当然由于同样的理由,搁置.
+
 #界面截图
 ![随便截的一张删贴机截图](https://raw.githubusercontent.com/Purstal/tieba-post-deleter/master/screen-shots/post%20deleter.png)
 
